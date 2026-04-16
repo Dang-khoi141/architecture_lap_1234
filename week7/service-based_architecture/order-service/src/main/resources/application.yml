@@ -1,0 +1,29 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: order-service
+  datasource:
+    url: jdbc:h2:mem:orderdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+app:
+  jwt:
+    secret: ChangeThisSecretKeyForDemoOnly1234567890
+    expiration-ms: 86400000
+
+clients:
+  user-service:
+    base-url: http://172.16.51.159:8081
+  food-service:
+    base-url: http://172.16.50.137:8082
+
+retry:
+  max-attempts: 3
+  delay-ms: 300
